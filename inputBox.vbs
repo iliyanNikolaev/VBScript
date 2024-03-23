@@ -3,18 +3,22 @@ Option Explicit
 Dim name
 Dim age
 
-name = InputBox("What is your name?", "Name")
-
+Do
+    name = InputBox("What is your name?", "Name")
 If name="" Then
     MsgBox "Name cannot be empty!", vbExclamation, "Error"
-    WScript.Quit
+Else
+    Exit Do
 End If
+Loop
 
-age = InputBox("What is your age?", "Age")
-
+Do
+    age = InputBox("What is your age?", "Age")
 If Not IsNumeric(age) Then
     MsgBox "Invalid age!", vbExclamation, "Error"
-    WScript.Quit
+ElseIf IsNumeric(age) Then
+    Exit Do
 End If
+Loop 
 
 MsgBox name + ", " + age
